@@ -1,0 +1,10 @@
+filters: file.folder == "CSV import"
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - Name
+      - Assign
+      - Date
+      - Status

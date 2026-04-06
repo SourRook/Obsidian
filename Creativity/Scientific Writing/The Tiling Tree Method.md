@@ -1,0 +1,107 @@
+
+Over the years, the Synthetic Neurobiology group at MIT has practiced many learnable and teachable creativity and problem solving skills. Our core hypothesis is that creativity, and problem solving, like any other skill, can be learned and taught. But how often is it that someone takes a class on creativity? Or attends a seminar on problem solving? Such skills seem to be the kind of thing that one is simply expected to pick up, along the way. We want to change that, by making it possible to study, and practice, creativity and problem solving, like any other skill.
+
+In this essay we discuss one of the most powerful methods our group practices - one that we call the “tiling tree” method. In the tiling tree method, one constructs a diagram of all the possible ways of solving a problem. The instructions for doing so are simple to explain, but to follow them well - helpful for generating truly new, impactful, creative ideas - requires attention to detail, logical consistency, and questioning everything one reads or thinks. To make a tiling tree of the solutions to a problem, take the set of all possible solution ideas, and split that set into subsets that do not overlap, but that together comprehensively cover the original set - analogous to the way that tiles might cover a wall completely, without overlapping. Then take each of the new subsets, and split it into yet smaller subsets - again, that don’t overlap, but that together cover all the possibilities.
+
+One way to represent this process, as you split sets into subsets over and over again, is as a tree diagram. Each split of a set is depicted as a set of “branches” radiating downwards from that set, each leading to a smaller subset. Eventually, you might get to sets that contain just one idea - the “leaves” of the tree, which represent the final outcomes of the iterative splitting process. These ideas might be actual projects that one could do. One can then evaluate each candidate project in terms of its potential impact, uniqueness, and feasibility (or whatever other criteria one prefers). Perhaps one could perform a mathematical calculation or computer simulation to assess an idea’s feasibility, or conduct a pilot experimental study to see whether a project might work.
+
+If done properly, the tiling tree method forces one to think of ideas that one may not normally think of. It also guarantees a kind of completeness - you can have the satisfaction that you have not missed out on a possible path. One simple way to split a category into subcategories - although it’s not always the best way of doing so - is a “binary chop” method. Take the set of all of the ideas for how to solve a problem, and split that set into two subsets - one subcategory where each idea has property A, and another subcategory where each idea does not have property A. Let’s consider a toy problem - every possible way of generating energy:![](https://substackcdn.com/image/fetch/$s_!Eqtn!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe93b4905-4203-4099-bd89-7550ec0a79c0_780x402.png)
+We first split the entire set into renewable and nonrenewable subsets. The renewable subset, in turn, we split into solar and non–solar subsets. What is a renewable, non-solar method of generating energy? Suddenly, we are in a regime of ideas that most of us, perhaps, do not think about every day. Maybe ocean tides could move masses in harbors near a city, driving downstream electricity production. Geothermal energy comes to mind - could there be versions of that, that could be implemented anywhere on earth? The tree is forcing us to think about ideas that we may not have been thinking about before. (As an exercise, you might try to continue extending the tree above.)
+
+Let’s go through some examples that exemplify different aspects of the process. Then, you might try the method yourself, with problems you struggle with - that way you will hone your skill in this practice.
+
+Let’s start by thinking about a cutting-edge area of research, full of excitement and risk, opportunity and innovation - the field of brain-machine interfaces (BMI, also called brain-computer interfaces (BCI)). This may get a bit technical, so we’ll try to give some background information to get everyone on the same page, but don’t worry if some technical details seem too far afield - we’ll emphasize the core take-home messages. By way of background: brain cells, called neurons, compute using (amongst other signals) electrical pulses that last about a thousandth of a second long. Neurons are small - about 100,000 neurons might be packed within a cubic millimeter of the human brain. The ability to record neural electrical pulses allows for extraction of information from the brain, helping us understand how the brain works, and also could help humans control computers and other machines according to their thoughts.
+
+How can we record the high speed electrical activity of neurons in the brain? Because different neurons have different roles, we want to do such recording scalably - recording as many neurons as possible. Perhaps we want to aim for recording the activity of neurons throughout the whole brain, at single cell resolution. This might be especially useful if we want to understand how the brain computes (there is evidence that a single neuron can influence the activity of the entire brain12), although for brain-machine interfaces, such a goal might be less critical - you might be able to control a computer with a tiny fraction of the information of the entire brain. Whole brain neural recording is a very ambitious goal. A first split might be to consider whether the neural data is relayed out of the brain through wires (physical conduits for information-carrying particles or energy to be conveyed), or through wireless (information-carrying particles or energy are conveyed through free space) means:![](https://substackcdn.com/image/fetch/$s_!ARst!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feb1e4af4-66d4-4323-be8a-4e82b93313ab_572x352.png)
+Now, at any point in making such a diagram, you can evaluate the “leaves” of the tree, at the bottom, for whether the projects associated with them are aligned with your success criteria. In this case, which method of data transmission, wired or wireless, can carry more information, so that we could potentially scale to recording data from a whole mammalian brain (a mouse brain has perhaps 70,000,000 neurons; a human brain, perhaps 90,000,000,000)? One can calculate how much information would be coming out of the entire brain if you recorded every neuron in the whole mouse brain (mice being commonly studied in neuroscience), or throughout the whole human brain. If one does such a calculation for ultrasound, optical, radio, and other wireless modalities of information transfer, one finds that they convey, generally, far less information than with wired means (considering optical fibers to be a kind of wire, using the definition of wire given above). We did such calculations in 2006-2008, and concluded at the time that if we wanted to record from the whole mouse brain, we’d need to go with wires - which led to a project to build 3-d, scalable, nanofabricated electrode arrays, that would convey information out of the brain through wires (published in this series of papers in 2015-2018345). Of course, it’s useful to revisit a tree every now and then, since as underlying or complementary technologies evolve, a bad idea might turn into a good one - this tree above is very useful to redo, at least once a year!
+
+Optogenetics, the use of light to control neural electrical activity6, began in 2000 with a tiling tree of sorts. The brain contains thousands of kinds of cells - small vs. large, excitatory vs. inhibitory, shaped in different ways, and containing different kinds of molecules. Different cell types also change in different ways in different diseases. How can you determine which type of cell contributes to a given emergent function or dysfunction of the brain? Ideally, we could activate or silence the electrical activity of just one kind of neuron, and not its neighbors, upon delivering some kind of energy to the brain. If we could express a gene in the targeted set of neurons (in particular, different cell types differ in their molecular composition, making them targetable through gene therapy methods), and not its neighbors, and the gene product (or protein) could convert delivered energy into electricity, then we could control the activity of just those neurons, with that form of energy. By activating a specific set of cells, you could figure out what behaviors, or pathologies, or therapeutic effects, it was sufficient to trigger. And by silencing a set of cells, you could determine what behaviors, pathologies, or therapeutic effects it was necessary for.
+
+We first set out to determine: what form of energy should we deliver to the brain? We compiled a list of various modalities of energy delivery, including magnetic fields, mechanical force, light, and so forth. The list of the possible forms of energy that you can deliver to the brain is pretty short - the laws of physics are very concise. Then, for each case, we did a calculation: what kind of spatial resolution, temporal resolution, and size of electrical effect, could be achieved by that form of energy, perhaps coupled to an appropriate genetically encoded protein? Light, of course, would have higher spatial resolution than mechanical force or magnetic fields. We also calculated how much effect each form of energy would have on an appropriate genetically encoded protein - for example, how much force a magnetic field could apply to a genetically encoded magnetic bead, fused to an ion channel. Our calculations were helpful in ruling out certain ideas - for example, one of our calculations suggested that for a small magnetic protein connected to an ion channel, the magnetic field might need to be inconveniently large, to actuate the ion channel.
+
+Next came a choice - do we use an existing light sensing protein, or make a new one? Microbial rhodopsins, light-driven ion transporters from single-cell microbes, seemed to be able to create sizable currents in response to modest light fluxes. We started requesting genes encoding for these proteins, from colleagues, and very quickly we were off to the races7. We did a pilot study with one opsin, channelrhodopsin-2, in cultured neurons - and it worked, enabling them to be electrically activated by pulses of blue light, pretty much on the first try. Now, thousands of studies have used optogenetics (opto meaning light, and genetics because these are genetically encoded tools) to study how specific cell types contribute to brain functions or disorders, and some of our molecules are even showing promise in clinical trials for helping people with certain forms of blindness8. Here is the tree:![](https://substackcdn.com/image/fetch/$s_!-XCA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc5664bbf-a974-4cd1-b292-dae23a1b57cf_834x550.png)
+It can be useful to redo a tree every now and then: perhaps an idea that was bad last year, is now a good idea, because of some change in the world (e.g., AI tools are now available, or genome sequencing is now cheaper, or computers are faster, or some other trend). The tree that yielded optogenetics is such an example: in the years since we did the original thinking, people have characterized many new force-sensitive, magnetic field-sensitive, and other proteins, and therefore some branches of the tree are now more impactful and/or feasible than they appeared to be, in the year 2000. New technologies are emerging, such as sonogenetics and magnetogenetics, which seek to activate neurons expressing mechanical force- and magnetic field-sensitive proteins, respectively. Regarding finding vs. making the protein - in this era of generative AI, perhaps novel protein architectures could exhibit features not achievable with purely natural proteins.
+
+Really stretching oneself to think - did I really tile the space? - is useful. As an exercise - let’s go back to the wired vs. wireless neural recording example. Is there a third alternative to wired and wireless? Defined as above, there are definitely options not covered by the categories we were calling wired and wireless (as you may recall, we were defining wired as relying on “physical conduits for information-carrying particles or energy to be conveyed,” and wireless as “information-carrying particles or energy are conveyed through free space”) - for example, what if we don’t rely on particles or energy at all? Hmm… what about secreting information out of the brain, in chemical form, through the bloodstream, where it can be easily harvested through a simple blood draw?![](https://substackcdn.com/image/fetch/$s_!Z8vq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc76b29d-c23c-407b-a2dc-c0f0f58c5435_780x402.png)
+Curiously, a few groups have recently showed that having the brain secrete chemical payloads into the bloodstream, from a given point in the brain, is indeed feasible910. One of these studies applied this strategy to a gene that is expressed after neurons are electrically active, so that a blood draw could then eavesdrop on the level of neural activity in a given region of the brain. What other possibilities can you come up with?
+
+This example highlights an important strategy for making a tiling tree as useful as possible: make sure that the words used to describe sets and subsets, are very precisely defined. Writing out the definitions of words, as concretely as possible, can help. Otherwise, it’s very easy to make splits that result in categories that subtly overlap, or to make splits that result in categories that don’t actually together tile the space of possibility. Forcing yourself to write out the definition of each word used to describe a category, can reduce the risk of making such incorrect splits.
+
+It can also be helpful to redo a tree over and over again, by splitting a given set into subsets in multiple, distinct ways. Perhaps one might choose different attributes by which to split a category of ideas into subcategories. Different kinds of splits might provoke very different kinds of ideas, because they force you to evaluate an idea space from different angles. A good split should be comprehensive - it might not be very useful to make a long list of individual possibilities within a category, because you might miss something important. Physics and math-oriented splits can be useful, because there is often a very finite number of ways to do something, considered from a physics or math standpoint (the above examples, of wired vs. wireless, and listing forms of energy that can be delivered to the brain, are of this flavor). Other ways to vary the kind of split pursued would be to consider different spatial scales, different temporal scales, the amount of energy involved, or the number of components involved. A good split might expose the trade-offs that govern decision-making in a solution space. Again, it’s important to make sure that the splits are “real” - that the subsets that result don’t overlap.
+
+Can we try a radically different split, for the neural recording example? Brain data must eventually be in digital form, if we are to analyze it in an implanted microchip, or an external computer, or some other digital device. Do we digitize neural data in the brain, and relay out just the bits, or do we digitize the data outside the brain, after relaying out analog info?
+
+
+![](https://substackcdn.com/image/fetch/$s_!SVVr!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb83e5780-3f6d-48db-a2c7-b562a79be99d_854x458.png)
+
+
+This leads to some interesting ideas about whether we put digital electronics inside the brain or not. But what if we take it one level further? Can we digitize neural data, inside the neuron itself?
+
+
+![](https://substackcdn.com/image/fetch/$s_!3DXi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff8183865-0f95-48c1-af78-b885ac3d3204_848x686.png)
+
+
+Hmm… how can we do this? If one could put an electronic device inside a cell, perhaps it could record neural activity into digital form - an idea that some groups are exploring. But what about non-electronic ways of digitizing information, inside a cell? Storing digital information can be done without electronics, by using as the digital medium information-encoding polymers like DNA, RNA, and protein. There are 4 letters (nucleotides) that make up strings of DNA and RNA, and 20 letters (amino acids) that make up proteins - in other words, such biomolecules are digital storage media. Several groups (including ours11121314) independently devised ways to store a history of neural activity in DNA, RNA, or protein form.
+
+It is worth noting that when we originally looked at non-electronic digitizing-in-neuron strategies, we heavily explored DNA- and RNA-based methods. However, the world changed, and advances in protein engineering eventually made a protein-based approach, in which proteins self-assemble into a ticker-tape-like chain to encode the timing of recorded neural events, quite promising. Maintaining a tiling tree and revisiting it periodically as synergistic fields advance, can help reveal when tree branches that might have previously seemed like dead ends, might be ready to yield fruit. If a branch seems especially worthy for some reason, but is blocked by a missing capability, it may be worth revisiting, especially when technologies relevant to that missing capability are rapidly changing. Or perhaps going after that missing capability, through inventive work, would be a worthy project in its own right.
+
+Many people, when they try tiling trees for the first time, end up only summarizing the ideas of the past, and not generating new ideas. That’s not a bad way to start, and can be a useful learning tool - it helps reveal the intellectual structure of past knowledge. But the exercise is most powerful when we force ourselves to think up new ideas. Done properly, you can end up with a roadmap for the future - as we did in the context of neural recording, generalizing some of the approaches talked about above15. One of us (Adam) is now extending variants of this philosophy at new organizations like Convergent Research to do “gap mapping,”16 revealing missing engineering pushes needed across science, to help science funders and researchers choose major unmet needs towards which to invest their time, effort, and resources.
+
+The tiling tree method, not surprisingly, has been invented and reinvented by many people over the years, in different areas of the human enterprise. Fritz Zwicky, an astronomer who made many ahead-of-his-time contributions to the field of astronomy, including proposing the mechanism of supernova formation, neutron stars, and dark matter, came up with many of his ideas with a similar method, that he called “morphological analysis”17. Zwicky himself noted that similar ideas go back centuries, at least to Paracelsus in 153018, and perhaps even earlier. Another example is from the field of consulting - which unfortunately makes it sometimes the butt of jokes - namely, the concept of “mutually exclusive, collectively exhaustive,” or MECE, which sounds similar to the above concept of “tiling”19. Clearly such strategies have been of use in many disciplines and professions over the years. Please give them a try!
+
+1
+https://doi.org/10.1038/nature06447
+
+2
+https://doi.org/10.1126/science.1169957
+
+3
+https://synthneuro.org/publications/close-packed-silicon-microelectrodes-for-scalable-spatially-oversampled-neural-recording/
+
+4
+https://synthneuro.org/publications/scalable-modular-three-dimensional-silicon-microelectrode-assembly-via-electroless-plating/
+
+5
+https://synthneuro.org/publications/a-direct-to-drive-neural-data-acquisition-system/
+
+6
+https://www.ted.com/talks/ed_boyden_a_light_switch_for_neurons
+
+7
+https://doi.org/10.3410/b3-11
+
+8
+https://www.nytimes.com/2021/05/24/science/blindness-therapy-optogenetics.html
+
+9
+https://doi.org/10.1038/s41598-020-64440-3
+
+10
+https://doi.org/10.1038/s41587-023-02087-x
+
+11
+https://synthneuro.org/publications/measuring-cation-dependent-dna-polymerase-fidelity-landscapes-by-deep-sequencing/
+
+12
+https://synthneuro.org/publications/rna-timestamps-identify-the-age-of-single-molecules-in-rna-sequencing/
+
+13
+https://synthneuro.org/publications/recording-of-cellular-physiological-histories-along-optically-readable-self-assembling-protein-chains/
+
+14
+https://doi.org/10.1038/s41587-022-01524-7
+
+15
+https://synthneuro.org/publications/physical-principles-for-scalable-neural-recording/
+
+16
+https://www.gap-map.org/?sort=rank
+
+17
+https://en.wikipedia.org/wiki/Fritz_Zwicky
+
+18
+https://doi.org/10.1126/science.163.3873.1317
+
+19
+https://en.wikipedia.org/wiki/MECE_principle
