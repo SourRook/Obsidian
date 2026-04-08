@@ -1,0 +1,2 @@
+
+`Projects` are finite tasks with a clear outcome that maps to clear `Goal`, even if the deadline is fuzzy. “Train for a 10k”, “Build daily EMA pipeline”, “Prepare neuroscience review article”, “Improve sleep regularity”, “Plan Kyoto trip”, “Draft short story”, “Reduce nicotine dependence”, these are projects. They live in `03_Projects/` and link back to one or more domains.

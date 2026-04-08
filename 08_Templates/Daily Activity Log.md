@@ -1,5 +1,5 @@
 
-# XXXX2026 - Project Log
+# MM/DD/YYYY - Project Log
 
 **Project:** Automatic EEG Scientist
 

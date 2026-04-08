@@ -1,3 +1,7 @@
 [
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-importer",
+  "obsidian-import-json",
+  "obsidian-google-lookup",
+  "smart-memos"
 ]
