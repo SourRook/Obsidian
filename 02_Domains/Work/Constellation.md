@@ -71,10 +71,6 @@ Up to that point, I had been experiencing significant anxiety about my performan
 
 ---
 
-## Scientific North Star
-
-The startup sits at the intersection of my long-term scientific goals: if behaviour arises from a multi-modal, multi-scale latent state, then Constellation is building the measurement infrastructure to actually access that state. The EEG metrics work connects directly to my PhD research on travelling wave modes — the question is whether those macroscopic flow patterns can serve as a basis for the neural component of the behavioural embedding, and how they interact with signals from other modalities.
-
 See also: [[Academic Research Project Ideas]], [[03_Projects/EEG-Behavioural Metrics/EEG metrics|EEG Metrics]]
 
 #constellation #work #context-hub

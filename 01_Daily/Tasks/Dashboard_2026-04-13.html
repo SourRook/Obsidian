@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Plan — Monday, 13 April 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel-2: #1c2230;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --urgent: #f85149;
+    --high: #ff8c42;
+    --medium: #58a6ff;
+    --low: #6e7681;
+    --in-progress: #d29922;
+    --todo: #58a6ff;
+    --backlog: #6e7681;
+    --green: #3fb950;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+  header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 { font-size: 28px; font-weight: 600; margin-bottom: 4px; }
+  .date { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+  .greeting {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .state-summary {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .state-chip {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .state-chip strong { color: var(--text); }
+
+  .priority-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .priority-card {
+    background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .priority-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  }
+  .priority-card.urgent { border-left-color: var(--urgent); }
+  .priority-card.high   { border-left-color: var(--high); }
+  .priority-card .src   { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .priority-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .priority-card p  { font-size: 13px; color: var(--muted); }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 14px 18px;
+    background: var(--panel-2);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-header:hover { background: #232a3a; }
+  .panel-header h2 { font-size: 16px; font-weight: 600; }
+  .panel-header .meta { color: var(--muted); font-size: 12px; }
+  .panel-body { padding: 16px 18px; }
+  .panel.collapsed .panel-body { display: none; }
+
+  .section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    margin: 12px 0 8px;
+    font-weight: 600;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #21262d;
+  }
+  .task:last-child { border-bottom: none; }
+  .task .check {
+    margin-top: 4px;
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--muted);
+    border-radius: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .task .check.done {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .task .body { flex: 1; min-width: 0; }
+  .task .title { font-size: 14px; margin-bottom: 4px; }
+  .task .meta {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge.urgent { background: rgba(248,81,73,0.18); color: var(--urgent); }
+  .badge.high   { background: rgba(255,140,66,0.18); color: var(--high); }
+  .badge.medium { background: rgba(88,166,255,0.18); color: var(--medium); }
+  .badge.low    { background: rgba(110,118,129,0.25); color: var(--low); }
+  .badge.in-progress { background: rgba(210,153,34,0.18); color: var(--in-progress); }
+  .badge.todo        { background: rgba(88,166,255,0.18); color: var(--todo); }
+  .badge.backlog     { background: rgba(110,118,129,0.25); color: var(--backlog); }
+
+  .empty-state {
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+    padding: 8px 0;
+  }
+  .footer-note {
+    margin-top: 24px;
+    padding: 14px;
+    background: var(--panel-2);
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 880px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    body { padding: 16px; }
+  }
+  .chevron {
+    transition: transform 0.2s ease;
+    font-size: 12px;
+  }
+  .panel.collapsed .chevron { transform: rotate(-90deg); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Good morning, Matteo</h1>
+    <div class="date">Monday, 13 April 2026 — Week 16</div>
+    <div class="greeting">First day back in SF after Easter PTO in London. Welcome back.</div>
+    <div class="state-summary">
+      <div class="state-chip"><strong>TRT cycle:</strong> Day 6 (injection 7 Apr) — energy expected upswing</div>
+      <div class="state-chip"><strong>Last logged state:</strong> [OB] 8 Apr — Engaged, reflective</div>
+      <div class="state-chip"><strong>Sprint focus:</strong> EEG data review + metrics scoping</div>
+    </div>
+  </header>
+
+  <div class="priority-grid">
+    <div class="priority-card high">
+      <div class="src">🧠 Vault · Today's note</div>
+      <h3>30-minute EEG data review</h3>
+      <p>Review all EEG data collected since last week — loaders, QC reports, gel net vs cap comparison.</p>
+    </div>
+    <div class="priority-card high">
+      <div class="src">📋 Linear · DC-474</div>
+      <h3>Cap vs Net signal quality</h3>
+      <p>In Progress. Direct overlap with today's 30-min review priorities.</p>
+    </div>
+    <div class="priority-card">
+      <div class="src">🧠 Carryover · 8 Apr</div>
+      <h3>EEG metrics deep research</h3>
+      <p>Tiling Tree Method + multiverse approach brainstorm. This week's priority.</p>
+    </div>
+    <div class="priority-card">
+      <div class="src">👥 People · Sandhya</div>
+      <h3>Onboarding follow-ups</h3>
+      <p>Reece (founding AI researcher, ex-allJoined CTO) joining. Check on Vineet's Frustration Task work trial (started 5 Apr).</p>
+    </div>
+    <div class="priority-card high">
+      <div class="src">📝 Life admin</div>
+      <h3>Submit UCSF medical documents</h3>
+      <p>Carryover. Don't let it slip another week.</p>
+    </div>
+  </div>
+
+  <div class="panel" id="p-eeg">
+    <div class="panel-header" onclick="toggle('p-eeg')">
+      <h2>🧪 EEG Project — 30 Min Review (from today's daily note)</h2>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="panel-body">
+      <div class="section-title">Automatic EEG Scientist</div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">New loader functions for blue-whale + red-rooster EEG concat</div>
+        <div class="meta"><span class="badge medium">~1h</span></div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Run line-noise QC, bad channel stats, vector flow field reports</div>
+        <div class="meta"><span class="badge high">3-4h</span> · physiological plausibility check</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Compile per-recording reports vs normative distribution</div>
+        <div class="meta"><span class="badge medium">~1h</span></div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Check data quality: gelled nets vs gelled caps</div>
+        <div class="meta">overlaps with DC-474</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Move EEG data to GCP</div>
+      </div></div>
+
+      <div class="section-title">EEG Metrics — Scraping for cognitive function prediction</div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Begin scraping EEG metrics; explore via Tiling Tree Method</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Multi-verse approach to large-scale EEG analysis</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">FOOOF fitting — estimate E/I balance</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Flowfield zero-crossing rate — morning vs evening alertness</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Flowfield eigenvalue AUC — intrinsic cortical dimensionality (Robert Peach)</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+
+    <div class="panel" id="p-linear">
+      <div class="panel-header" onclick="toggle('p-linear')">
+        <h2>📋 Linear</h2>
+        <span class="meta">3 active · cancelled routines filtered</span>
+      </div>
+      <div class="panel-body">
+        <div class="section-title">In Progress</div>
+        <div class="task"><div class="check"></div><div class="body">
+          <div class="title">DC-474 · Compare cap vs net signal quality</div>
+          <div class="meta"><span class="badge in-progress">In Progress</span> · Constellation</div>
+        </div></div>
+        <div class="task"><div class="check"></div><div class="body">
+          <div class="title">DC-352 · Return Empatica</div>
+          <div class="meta"><span class="badge in-progress">In Progress</span> <span class="badge high">High</span> · Life admin</div>
+        </div></div>
+        <div class="section-title">Backlog</div>
+        <div class="task"><div class="check"></div><div class="body">
+          <div class="title">DC-473 · P_045 ground clip issue</div>
+          <div class="meta"><span class="badge backlog">Backlog</span> · Constellation</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-email">
+      <div class="panel-header" onclick="toggle('p-email')">
+        <h2>📧 Gmail</h2>
+        <span class="meta">26 unread · 0 starred</span>
+      </div>
+      <div class="panel-body">
+        <div class="empty-state">
+          26 unread emails in last 24h. No starred items surfaced. Triage during morning email block —
+          look for Sandhya's tracker comments + any ANT Neuro thread updates from PTO window.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-slack">
+      <div class="panel-header" onclick="toggle('p-slack')">
+        <h2>💬 Slack</h2>
+        <span class="meta">No mentions since 12 Apr</span>
+      </div>
+      <div class="panel-body">
+        <div class="empty-state">
+          No @mentions while you were out. Last actionable item before PTO: Avery's note (3 Apr)
+          on EEG channel mappings — confirm whether resolved.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="p-people">
+      <div class="panel-header" onclick="toggle('p-people')">
+        <h2>👥 People context (from Sandhya catchup)</h2>
+      </div>
+      <div class="panel-body">
+        <div class="task"><div class="check"></div><div class="body">
+          <div class="title">Reece — joining as founding AI researcher / full-stack SWE</div>
+          <div class="meta">ex-CTO of allJoined (alljoined.com). Plan onboarding touchpoint.</div>
+        </div></div>
+        <div class="task"><div class="check"></div><div class="body">
+          <div class="title">Vineet — work trial in progress (started 5 Apr)</div>
+          <div class="meta">Frustration Task: adaptively varies mouse/keyboard lag during participant work. Check progress.</div>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="panel" id="p-carry">
+    <div class="panel-header" onclick="toggle('p-carry')">
+      <h2>🔁 Carryover from 8 April</h2>
+    </div>
+    <div class="panel-body">
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Deep research on EEG metrics + Tiling Tree Method</div>
+        <div class="meta">Constellation · rolled into top priorities</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Submit medical documents to UCSF</div>
+        <div class="meta">Life admin</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Finalise AM EMA + PM reflections system</div>
+        <div class="meta">Personal infra</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Reach out to Gigi to schedule call</div>
+        <div class="meta">Personal</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="panel" id="p-week">
+    <div class="panel-header" onclick="toggle('p-week')">
+      <h2>📅 This Week's Priorities (Current State)</h2>
+    </div>
+    <div class="panel-body">
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Deep research on EEG metrics — Tiling Tree Method</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Finalise AM EMA + PM reflection system</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Submit medical documents to UCSF</div>
+      </div></div>
+      <div class="task"><div class="check"></div><div class="body">
+        <div class="title">Reach out to Gigi to schedule call</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="panel" id="p-checklist">
+    <div class="panel-header" onclick="toggle('p-checklist')">
+      <h2>✅ Daily Checklist (from today's note)</h2>
+    </div>
+    <div class="panel-body">
+      <div class="task"><div class="check"></div><div class="body"><div class="title">30-minute review completed</div></div></div>
+      <div class="task"><div class="check"></div><div class="body"><div class="title">Google calendar updated</div></div></div>
+      <div class="task"><div class="check"></div><div class="body"><div class="title">Tasks added to Linear</div></div></div>
+      <div class="task"><div class="check"></div><div class="body"><div class="title">Activity log updated (description + Notion figures)</div></div></div>
+      <div class="task"><div class="check"></div><div class="body"><div class="title">Script changes pushed to GitHub</div></div></div>
+      <div class="task"><div class="check"></div><div class="body"><div class="title">10-minute reflection completed</div></div></div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Generated by daily-plan skill · 13 April 2026 ·
+    Granola not connected (sign up at granola.ai/mcp-signup to enable meeting import) ·
+    Click any checkbox to mark done · Click any panel header to collapse
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.check').forEach(el => {
+    el.addEventListener('click', e => { e.stopPropagation(); el.classList.toggle('done'); });
+  });
+  function toggle(id) { document.getElementById(id).classList.toggle('collapsed'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Key question: Can we use the multi-verse concept from Rob Leach to explore large numbers of EEG metric analysis pipeline in a data driven way?
+# A guided multiverse study of neuroimaging analyses
+
+- [Jessica Dafflon](https://www.nature.com/articles/s41467-022-31347-8#auth-Jessica-Dafflon-Aff1), [Pedro F. Da Costa](https://www.nature.com/articles/s41467-022-31347-8#auth-Pedro-F__Da_Costa-Aff1-Aff2),  [František Váša](https://www.nature.com/articles/s41467-022-31347-8#auth-Franti_ek-V__a-Aff1),  [Ricardo Pio Monti](https://www.nature.com/articles/s41467-022-31347-8#auth-Ricardo_Pio-Monti-Aff3),  [Danilo Bzdok](https://www.nature.com/articles/s41467-022-31347-8#auth-Danilo-Bzdok-Aff4-Aff5), [Peter J. Hellyer](https://www.nature.com/articles/s41467-022-31347-8#auth-Peter_J_-Hellyer-Aff1), [Federico Turkheimer](https://www.nature.com/articles/s41467-022-31347-8#auth-Federico-Turkheimer-Aff1), [Jonathan Smallwood](https://www.nature.com/articles/s41467-022-31347-8#auth-Jonathan-Smallwood-Aff6), 
+- [Emily Jones](https://www.nature.com/articles/s41467-022-31347-8#auth-Emily-Jones-Aff2) & 
+- [Robert Leech](https://www.nature.com/articles/s41467-022-31347-8#auth-Robert-Leech-Aff1) 
+
+Dafflon, J., F. Da Costa, P., Váša, F. _et al._ A guided multiverse study of neuroimaging analyses. _Nat Commun_ **13**, 3758 (2022). https://doi.org/10.1038/s41467-022-31347-8## A
+**Abstract**
+
+For most neuroimaging questions the range of possible analytic choices makes it unclear how to evaluate conclusions from any single analytic method. One possible way to address this issue is to evaluate all possible analyses using a multiverse approach, however, this can be computationally challenging and sequential analyses on the same data can compromise predictive power. Here, we establish how active learning on a low-dimensional space capturing the inter-relationships between pipelines can efficiently approximate the full spectrum of analyses. This approach balances the benefits of a multiverse analysis without incurring the cost on computational and predictive power. We illustrate this approach with two functional MRI datasets (predicting brain age and autism diagnosis) demonstrating how a multiverse of analyses can be efficiently navigated and mapped out using active learning. Furthermore, our presented approach not only identifies the subset of analysis techniques that are best able to predict age or classify individuals with autism spectrum disorder and healthy controls, but it also allows the relationships between analyses to be quantified.
+
+Publication link: https://www.nature.com/articles/s41467-022-31347-8

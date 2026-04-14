@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Epic Systems Corporation//MyChart//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:WP-24vqKQp-2B9q4l9LUr2JUj9x0w-3D-3D-24qTRzy5ZSTDd-2FEozzXWC0dr8tvVA3QAvksvf3qeW9n30-3D@ucsfmychart.ucsfmedicalcenter.org
+ORGANIZER;CN=UCSF MyChart:mailto:donotreplyucsfmychart@ucsf.edu
+DTSTAMP:20260413T232136Z
+DTSTART:20260416T222000Z
+DTEND:20260416T222000Z
+SUMMARY;LANGUAGE=en-US:Video Appointment (Video Visit) with Maxwell Meng
+DESCRIPTION;LANGUAGE=en-US:Appointment Time: 3:30 PM PDT\n\n\nFor this visit\, you will see your provider via video using your computer \nor mobile phone.  By accepting this invitation you consent to hold this \nvisit by video.  A video visit is billed the same way as an in-person \nclinic visit\; the terms of your deductible and copay still apply.  You \nalways have the option to request an in-person appointment instead of\, or \nfollowing\, a video visit. You must be in California at the time of the \nvisit.\n\n\n\nPrior to your visit:\n\nDownload Zoom from https://zoom.us/download \n\nTest your device by clicking this link:https://ucsf.zoom.us/test \n\nIf you are not able to join a test meeting\, contact MyChart Support \nanytime at 415-514-6000 \n\nWatch a video on how to prepare for your visit: \nhttps://videovisit.ucsf.edu \n\nLogin to MyChart\, find your visit\, and complete eCheckin \n\n\n\nNeed help setting up your computer or mobile device for Video Visits?  \nContact MyChart Customer Service at (415) 514-6000\, 24 hours a day\, 7 days \na week.\n\n\n\nDay of visit:\n\nBe in a quiet\, private place with a stable internet connection\n\nIn MyChart\, go to Appointments and find today's visit\n\nTap the "Begin Video Visit" button\n\nYou will wait in a virtual waiting room until the provider admits you.\n\n\n\nYou must join audio. When prompted on a mobile device\, select "Use \nInternet Audio".  On a computer\, click "Join with Computer Audio".\n\n \n\nBe sure you are in a quiet\, private place and are not operating a motor \nvehicle during your visit. \n\n\n\nAppointment details:\n\nProvider: Maxwell V Meng\n\nDate: Thursday April 16\, 2026\n\nTime: 3:30 PM\n\nAppt Department: UCSF Cancer Center Urology Surgical Oncology Program 6th \nFloor via MyChart\n
+END:VEVENT
+END:VCALENDAR

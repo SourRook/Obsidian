@@ -234,4 +234,140 @@ Claude partnership, constitution, and interaction preferences are a bit messy he
 
 *Append new entries below.*
 
+---
+
+## 2026-04-10 / 2026-04-13 | Daily Planning System Build + System Folder Restructure
+
+### Prompt 1 — ~15:34 (10 Apr)
+**Summary:** Kicked off the build of an automated note-taking system. Requested two new skills: `/daily-plan` (aggregates Slack, Linear, Gmail, daily notes, System markdown into a Tasks dashboard) and `/update-conv` (appends tidied conversation logs to the Prompt Log per Constitution rules).
+
+You are operating inside Documents/Obsidian. The goal of this is to create an automated note-taking system integrated with Claude Code. I want to start, set up a new skill /daily-plan that reads my Slack, Linear, Gmail, my daily notes, and reads all the markdown files under System, and then creates a visualised dashboard of all my tasks today, what emails need responses, what Linear tasks remain unfinished including states updates, and any other helpful UI features that you would recommend. Make this visualisation interface under "Tasks" which should be a new markdown file with today's date. This should be created at the start of each day when I ask you to execute this function (the function should live in System/Functions). Also create a new skill called update-conv which I can execute at the end of each interaction session with Claude and appends our conversation log with the tidied-up notes to Daily/prompt-log.md. The rules for how to append our conversations can be found in the Constitution and other markdown files under System.
+
+---
+
+### Prompt 2 — ~15:48 (10 Apr)
+**Summary:** Asked for a top-down restructure of the System folder. Defined a 3-layer architecture: (1) Obsidian = knowledge layer, (2) Claude Skills = thinking layer, (3) Claude Code = execution layer. Mentioned `update-meeting` as a third skill to auto-import Granola transcripts. Flagged that too many of the existing files are written in Claude's voice rather than his own.
+
+My systems files are a mess. Help me go through these markdown files and consolidate this into a simple system. It looks like there is a lot of redundancies and perhaps some information that is not useful that I suspect may even hamper performance. Please help me figure out how to structure the systems file.
+
+In the end I want a system that has 3 components:
+
+(1) Obsidian → this is the knowledge layer. It contains everything from my projects I am currently working on, my files on people and conversations with them, my meetings (update-meeting should be a new skill which automatically imports conversations from Granola, by the way), and my ideas, brain dumps, daily notes, etc.
+
+(2) Claude Skills (the thinking layer). This will have various functionality like the one I just requested from you to create a dashboard of my daily goals, tasks, meetings, my calendar, unfinished tasks, surface new ideas, etc., related to the project I am working on. There might be a literature-review that surfaces new EEG metric papers related to my new project goal at Constellation, that is to derive new EEG metrics for predicting behaviour, or update-conversation which logs all these meeting notes at the end of the day.
+
+(3) Then we have Claude Code itself, which executes these skills based on the relevant context.
+
+How should I organise this repo to best fulfil this? I'm stuck on this organisation architecture and there are already way too many markdown files, many of which are written by you and are not in my own voice. Help!
+
+---
+
+### Prompt 3 — ~15:54 (10 Apr)
+**Summary:** Approved the restructure. Flagged that the Identity.md file Claude drafted sounded too AI and didn't reflect how he sees himself. Suggested instead a `Me.md` note under People/Me containing self-knowledge, and asked Claude to populate it from prior Prompt Log entries. Asked Claude for input on whether this was a good idea.
+
+Yes, this does match what I am envisioning. Regarding the files you've written: the Constellation context is OK (I have updated this in my own words). The Identity.md file is too AI-sounding and I don't think truly reflects how I see myself. If you think this kind of document is important I can write it, but perhaps I should just have a new note under "Me" — for instance in People/Me — which contains all this information about myself. If you think this is a good idea (I want your input here!) then you can move the notes from our Prompt Log that contain information about me to this "Me" note. Everything else sounds good — you can strip back to the skeleton you outlined.
+
+---
+
+### Prompt 4 — ~18:22 (13 Apr)
+**Summary:** Returning to the conversation after a gap. Asked where the files Claude said it generated had ended up.
+
+What happened to all the files you generated?
+
+---
+
+### Prompt 5 — ~18:23 (13 Apr)
+**Summary:** Couldn't see the `.claude/skills/` folder where the new skills were supposed to live.
+
+Where is .claude/skills? I don't see this anywhere.
+
+---
+
+### Prompt 6 — ~18:26 (13 Apr)
+**Summary:** Triggered both new skills. Asked Claude to run `update-conv` and generate today's daily plan, pointing to today's notes in `01_Daily`. Authorised Claude to update the relevant skill if the file location wasn't being picked up.
+
+Update-conv and generate my daily plan. You can find my notes from today in 01_Daily. If this isn't clear already then you should update the relevant skill.
+
+---
+
+## 2026-04-13 | EEG QC Skill Creation & Automated Scheduling
+
+### Prompt 7 — ~13:30 (13 Apr)
+**Summary:** After reviewing the full QC pipeline (metrics, flagging, reports), asked to package it as a skill for automatic report generation whenever new EEG data appears on the server.
+
+Create a skill that executes this so that I can automatically generate reports for any new EEG data that appears on the server.
+
+---
+
+### Prompt 8 — ~13:40 (13 Apr)
+**Summary:** Asked what the practical advantage of adding scheduled automatic execution would be.
+
+What would be the advantage to adding that functionality?
+
+---
+
+### Prompt 9 — ~13:45 (13 Apr)
+**Summary:** Approved the scheduling approach and asked to implement it and fire up the skill while away at lunch.
+
+That sounds great, make the changes and fire up the skill while I'm gone for lunch.
+
+---
+
+## 2026-04-13 | EEG QC Pipeline Updates (Scheduled Run)
+
+### Prompt 10 — ~14:10 (13 Apr)
+**Summary:** Cursor editor prompted to save changes from the scheduled QC run. Asked whether to accept the edits.
+
+Cursor is asking if I should save the changes, should I hit yes, are these your edits?
+
+---
+
+## 2026-04-13 | Wrapping Up & Conversation Export Scheduling
+
+### Prompt 11 — ~20:50 (13 Apr)
+**Summary:** End-of-day wrap-up. Asked to export and append all new prompt logs to Obsidian using update-conv, and to set up a daily 8pm scheduled task that automatically appends new conversations across all chats and projects without duplicating already-logged entries.
+
+I am wrapping up for today, please export and append all new prompt logs to the relevant Obsidian folder using update-conv. Set this to occur at 8pm every day and ensure it always appends across all new chats and projects (i.e. doesn't add our conversations that are already in the log file).
+
+---
+
+## 2026-04-13 | Waveguard Cap Channel Ordering Investigation (Cursor)
+
+### Prompt 12 — ~19:00 (13 Apr)
+**Summary:** Investigating why the CA-213 topoplot appears non-physiological. Asked to confirm the correct .elc file is being rendered and whether the channel ordering matches.
+
+Are you correctly reading the session.json file inside rec_20260401_172442_04d8 and mapping the channel names to the correct order as found in the corresponding elc file? This recording should be "electrode_file": "CA-213.elc" but the topoplot rendering does not give spatial patterns of EEG flow that appear physiological. Confirm (1) that you are rendering the correct .elc file and (2) that the channel ordering is correct.
+
+---
+
+### Prompt 13 — ~19:10 (13 Apr)
+**Summary:** Requested a clean, modular debugging script for loading .bin EEG data, filtering, re-referencing, rendering a video, and plotting the FOOOF power spectrum.
+
+Write a simple, extremely interpretable and easy to debug script that loads in the .bin EEG data in test_data. Do not make this script overly verbose. Make each step in the pipeline modular. Load in the data. Extract the channel coordinates and channel names from the meta.json file. Filter the data from 12-20Hz. Compute average reference. Render a video. Then plot the FOOOF power spectrum on the entire recording (2-80Hz, FOOOF peak targeting 60Hz). Make this new script eeg_april_test.py.
+
+---
+
+### Prompt 14 — ~19:20 (13 Apr)
+**Summary:** Asked to make the output folder dynamic, deriving the recording ID from the input path.
+
+Edit the output folder so it saves it with the correct EEG file name (use rec_20260331_205813_248f in this case, but it should vary depending on the input).
+
+---
+
+### Prompt 15 — ~19:30 (13 Apr)
+**Summary:** Topoplot still scrambled. Hypothesised that the .bin column indices are ordered as in CA-213_channels.txt (hardware pin order) rather than the .elc file order, and asked to add a toggle to relabel accordingly.
+
+The CA-213 video topoplot is still scrambled. Can you try reordering the raw EEG data as if assuming that the channel indices that are coming in from the .bin files are actually ordered as in CA-213_channels.txt, and thus must be reordered to match the order found in the CA-213.elc file? Apply this to eeg_april_test.py as an input option I can toggle in the preamble after #load eeg_april_test.py (171-174), for instance use_text_locs = True.
+
+---
+
+## 2026-04-13 | Daily Progress Write-Up & Final Export (Cowork)
+
+### Prompt 16 — ~21:00 (13 Apr)
+**Summary:** Reported fixing the channel ordering issue with the waveguard caps. Asked for a daily progress note, and to append the Cursor session prompts to the Prompt Log.
+
+I also managed to fix the channel ordering issue with the waveguard caps (needed to use the channel ordering from this text file). Please write up all the progress from today as a daily note (which I will edit myself in my own words) and also append this prompt log from Cursor.
+
+---
+
 #prompt-log #monitoring #meta
